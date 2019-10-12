@@ -8,37 +8,57 @@ import Home from './panels/Home';
 import Persik from './panels/Persik';
 
 const App = () => {
-	const [activePanel, setActivePanel] = useState('home');
-	const [fetchedUser, setUser] = useState(null);
-	const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
+  const [activePanel, setActivePanel] = useState('home');
+  const [fetchedUser, setUser] = useState(null);
+  const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
 
-	useEffect(() => {
-		connect.subscribe(({ detail: { type, data }}) => {
-			if (type === 'VKWebAppUpdateConfig') {
-				const schemeAttribute = document.createAttribute('scheme');
-				schemeAttribute.value = data.scheme ? data.scheme : 'client_light';
-				document.body.attributes.setNamedItem(schemeAttribute);
-			}
-		});
-		async function fetchData() {
-			const user = await connect.sendPromise('VKWebAppGetUserInfo');
-			setUser(user);
-			setPopout(null);
-		}
-		fetchData();
-	}, []);
+  // connect.subscribe((e) => console.log(e.detail.source));
 
-	const go = e => {
-		setActivePanel(e.currentTarget.dataset.to);
-	};
+  // if (connect.supports("VKWebAppResizeWindow")) {
+  //   connect.send("VKWebAppResizeWindow", {"width": 800, "height": 1000});
+  // }
 
-	return (
-		<View activePanel={activePanel} popout={popout}>
-			<Home id='home' fetchedUser={fetchedUser} go={go} />
-			<Persik id='persik' go={go} />
-		</View>
-	);
-}
+  useEffect(() => {
+    connect.subscribe(({detail: {type, data}}) => {
+      if (type === 'VKWebAppUpdateConfig') {
+        const schemeAttribute = document.createAttribute('scheme');
+        schemeAttribute.value = data.scheme ? data.scheme : 'client_light';
+        document.body.attributes.setNamedItem(schemeAttribute);
+      }
+    });
+
+    async function fetchData() {
+      const user = await connect.sendPromise('VKWebAppGetUserInfo');
+      setUser(user);
+      setPopout(null);
+    }
+
+    fetchData();
+
+    // connect
+    //   .sendPromise('VKWebAppGetUserInfo')
+    //   .then(data => {
+    //     // Обработка события в случае успеха
+    //     console.log(data);
+    //   })
+    //   .catch(error => {
+    //     //Обработка событияв случае ошибки
+    //     console.log(error);
+    //   });
+
+  }, []);
+
+  const go = e => {
+    setActivePanel(e.currentTarget.dataset.to);
+  };
+
+  return (
+    <View activePanel={activePanel} popout={popout}>
+      <Home id='home' fetchedUser={fetchedUser} go={go} />
+      <Persik id='persik' go={go} />
+    </View>
+  );
+};
 
 export default App;
 
