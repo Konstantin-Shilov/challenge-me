@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import connect from '@vkontakte/vk-connect';
+// import connect from '@vkontakte/vk-connect';
+import { VKMiniAppAPI } from '@vkontakte/vk-mini-apps-api';
 import View from '@vkontakte/vkui/dist/components/View/View';
 import ScreenSpinner from '@vkontakte/vkui/dist/components/ScreenSpinner/ScreenSpinner';
 import '@vkontakte/vkui/dist/vkui.css';
@@ -12,6 +13,22 @@ const App = () => {
   const [fetchedUser, setUser] = useState(null);
   const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
 
+
+
+  const api = new VKMiniAppAPI();
+
+  // Initializing app
+  api.initApp();
+
+  // Using methods
+  api.getUserInfo().then(userInfo => {
+    setUser(userInfo);
+    setPopout(null);
+  });
+
+
+
+
   // connect.subscribe((e) => console.log(e.detail.source));
 
   // if (connect.supports("VKWebAppResizeWindow")) {
@@ -19,21 +36,21 @@ const App = () => {
   // }
 
   useEffect(() => {
-    connect.subscribe(({detail: {type, data}}) => {
-      if (type === 'VKWebAppUpdateConfig') {
-        const schemeAttribute = document.createAttribute('scheme');
-        schemeAttribute.value = data.scheme ? data.scheme : 'client_light';
-        document.body.attributes.setNamedItem(schemeAttribute);
-      }
-    });
-
-    async function fetchData() {
-      const user = await connect.sendPromise('VKWebAppGetUserInfo');
-      setUser(user);
-      setPopout(null);
-    }
-
-    fetchData();
+    // connect.subscribe(({detail: {type, data}}) => {
+    //   if (type === 'VKWebAppUpdateConfig') {
+    //     const schemeAttribute = document.createAttribute('scheme');
+    //     schemeAttribute.value = data.scheme ? data.scheme : 'client_light';
+    //     document.body.attributes.setNamedItem(schemeAttribute);
+    //   }
+    // });
+    //
+    // async function fetchData() {
+    //   const user = await connect.sendPromise('VKWebAppGetUserInfo');
+    //   setUser(user);
+    //   setPopout(null);
+    // }
+    //
+    // fetchData();
 
     // connect
     //   .sendPromise('VKWebAppGetUserInfo')
