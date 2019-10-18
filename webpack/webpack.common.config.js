@@ -9,8 +9,8 @@ const lib = require('./lib');
 module.exports.default = {
   entry: './src/index.js',
   output: {
-    filename: 'assets/js/[name].bundle.[hash:10].js',
-    chunkFilename: 'assets/js/[name].bundle.[chunkhash:10].js',
+    filename: 'assets/js/[name].bundle.[hash:15].js',
+    chunkFilename: 'assets/js/[name].bundle.[chunkhash:15].js',
     publicPath: '/',
     path: path.resolve(__dirname, '../dist'),
   },

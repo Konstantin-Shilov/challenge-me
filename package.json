@@ -9,7 +9,7 @@
     "build": "webpack --config webpack/webpack.prod.config.js",
     "lint": "eslint src",
     "prettier": "prettier --write src/**/*.js",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist",
     "predeploy": "npm run build"
   },
   "husky": {
