@@ -1,0 +1,32 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["airbnb", "prettier", "plugin:import/errors", "plugin:react/recommended"],
+  "plugins": ["react", "import", "jsx-a11y", "prettier", "emotion", "react-hooks"],
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src", "src/public", "src/@redux"],
+        "extensions": [".js"]
+      }
+    }
+  },
+  "rules": {
+    "prettier/prettier": ["error"],
+    "import/prefer-default-export": "off", // for styled, no default export
+    "react/jsx-props-no-spreading": "off", // use {...props}
+    "react/no-array-index-key": "off", // USE index for key
+    "react-hooks/rules-of-hooks": "error", // Проверяем правила хуков
+    "react-hooks/exhaustive-deps": "warn", // Проверяем зависимости эффекта
+    "import/no-extraneous-dependencies": "off", // Убираем ошибки с веб-паком в dependencies
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ]
+  }
+}
