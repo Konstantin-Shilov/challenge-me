@@ -7,7 +7,7 @@ const lib = require('./lib');
 
 module.exports = merge(common.default, {
   mode: 'production',
-  entry: ['@babel/polyfill', 'raf/polyfill', './src'],
+  entry: ['@babel/polyfill', './src'],
   plugins: [
     // Позволяет передавать в html параметры process.env.VARIABLE
     new webpack.EnvironmentPlugin({
