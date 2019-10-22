@@ -9,7 +9,7 @@ module.exports = merge(common.default, {
   mode: 'production',
   entry: ['@babel/polyfill', './src'],
   output: {
-    publicPath: '/challenges/',
+    publicPath: '/challenge-me/',
   },
   plugins: [
     // Позволяет передавать в html параметры process.env.VARIABLE

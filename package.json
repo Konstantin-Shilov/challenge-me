@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Mini app",
   "main": "index.js",
-  "homepage": "https://Konstantin-Shilov.github.io/challenges/",
+  "homepage": "https://Konstantin-Shilov.github.io/challenge-me/",
   "scripts": {
     "start": "webpack-dev-server --hot --progress --config webpack/webpack.dev.config.js",
     "build": "webpack --config webpack/webpack.prod.config.js",
