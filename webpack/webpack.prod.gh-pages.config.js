@@ -8,6 +8,9 @@ const lib = require('./lib');
 module.exports = merge(common.default, {
   mode: 'production',
   entry: ['@babel/polyfill', './src'],
+  output: {
+    publicPath: '/challenges/',
+  },
   plugins: [
     // Позволяет передавать в html параметры process.env.VARIABLE
     new webpack.EnvironmentPlugin({

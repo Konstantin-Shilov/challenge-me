@@ -1,20 +1,13 @@
 import React from 'react';
-import Helmet from 'react-helmet';
 
-import 'public/images/common/close.svg';
-
-import { MainWrapper, TitleWrapper, IconWrapper } from './styled';
+import { Card } from './styled';
 
 const Main = () => (
-  <MainWrapper>
-    <Helmet>
-      <title>{process.env.REACT_APP_PROJECT_NAME}</title>
-    </Helmet>
-    <TitleWrapper>
-      <IconWrapper glyph="close" />
-      <h1>{process.env.REACT_APP_PROJECT_NAME}</h1>
-    </TitleWrapper>
-  </MainWrapper>
+  <div>
+    <Card>
+      <span>qwerqwerqwerqwer</span>
+    </Card>
+  </div>
 );
 
 export default Main;

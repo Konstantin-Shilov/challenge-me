@@ -1,25 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { IconWrapper, Svg } from './styled';
+import { IconWrapper } from './styled';
 
 const Icon = (props) => {
-  const { glyph, className } = props;
+  const { children, className } = props;
   return (
     <IconWrapper className={className} {...props}>
-      <Svg>
-        <use xlinkHref={`#${glyph}`} />
-      </Svg>
+      {children}
     </IconWrapper>
   );
 };
 
 Icon.propTypes = {
-  glyph: PropTypes.string.isRequired,
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
   className: PropTypes.string,
 };
 
 Icon.defaultProps = {
+  children: [],
   className: '',
 };
 

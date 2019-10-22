@@ -4,7 +4,9 @@ import { withCookies } from 'react-cookie';
 import PropTypes from 'prop-types';
 
 import Layout from 'layout';
+import { Panel } from '@vkontakte/vkui';
 import Main from 'pages/Main';
+import MainSecond from 'pages/MainSecond';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class Content extends Component {
@@ -17,7 +19,12 @@ class Content extends Component {
     return (
       <Router history={history}>
         <Layout>
-          <Main />
+          <Panel id="weekly">
+            <Main />
+          </Panel>
+          <Panel id="other">
+            <MainSecond />
+          </Panel>
         </Layout>
       </Router>
     );

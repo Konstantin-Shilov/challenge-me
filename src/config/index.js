@@ -12,8 +12,10 @@ export const menuRoutes = [
 export const menu = [
   {
     title: 'Weekly',
+    id: 'weekly',
   },
   {
     title: 'Other',
+    id: 'other',
   },
 ];

@@ -21,6 +21,14 @@ module.exports = {
       outputPath: 'assets',
     },
   }),
+  FontLoader: () => ({
+    test: /\.(eot|woff|woff2|ttf)$/,
+    loader: 'file-loader',
+    options: {
+      name: 'fonts/[folder]/[name].[md5:hash:hex:10].[ext]',
+      outputPath: 'assets',
+    },
+  }),
   SvgLoaderDev: () => ({
     test: /\.svg$/,
     use: ['@svgr/webpack'],

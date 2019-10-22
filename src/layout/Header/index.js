@@ -1,21 +1,34 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
-// import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { menu } from 'config';
 
-import { HeaderWrapper } from './styled';
+import { HeaderWrapper, HeaderTitle, HeaderMenu, MenuLink } from './styled';
 
-// eslint-disable-next-line no-unused-vars
 const Header = (props) => {
-  return <HeaderWrapper>test</HeaderWrapper>;
+  const { go, activePanel } = props;
+
+  return (
+    <HeaderWrapper>
+      <HeaderTitle>Challenges</HeaderTitle>
+      <HeaderMenu>
+        {menu.map((item) => (
+          <MenuLink
+            key={item.title}
+            onClick={go}
+            data-to={item.id}
+            active={activePanel === item.id}
+          >
+            {item.title}
+          </MenuLink>
+        ))}
+      </HeaderMenu>
+    </HeaderWrapper>
+  );
 };
 
-// Header.propTypes = {
-//   session: PropTypes.shape().isRequired,
-// };
-//
-// const mapStateToProps = (state) => ({
-//   session: selectSessionData(state),
-// });
+Header.propTypes = {
+  go: PropTypes.func.isRequired,
+  activePanel: PropTypes.string.isRequired,
+};
 
 export default Header;
-// export default connect(mapStateToProps)(Header);

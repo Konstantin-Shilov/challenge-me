@@ -1,6 +1,19 @@
 import { css } from '@emotion/core';
 import emotionNormalize from 'emotion-normalize';
 
+const context = require.context('fonts');
+
+const getFonts = (familyName, fontName, ext) => context(`./${familyName}/${fontName}.${ext}`);
+
+const fontFace = (familyName, fontName, fontWeight) => css`
+  @font-face {
+    font-family: ${familyName};
+    src: url(${getFonts(familyName, fontName, 'ttf')}) format('truetype');
+    font-weight: ${fontWeight};
+    font-style: normal;
+  }
+`;
+
 export const globalStyles = css`
   ${emotionNormalize};
 
@@ -8,26 +21,24 @@ export const globalStyles = css`
     box-sizing: border-box;
   }
 
-  html {
-    height: 100%;
-  }
-
-  body {
-    height: 100%;
-    font-size: 16px;
-    line-height: 1.2;
-    font-weight: 400;
-    background: #f0f2f5 !important;
-  }
-
   body {
     min-width: 320px;
     max-width: 100vw;
+    font-family: GoogleSans, sans-serif;
+    font-size: 16px;
+    line-height: 1.2;
+    font-weight: 400;
+    background: #333232;
     overflow-x: hidden;
-    margin: 0 !important;
   }
 
   #root {
     height: 100%;
   }
+
+  ${fontFace('GoogleSans', 'GoogleSans-Regular', 400)};
+  ${fontFace('GoogleSans', 'GoogleSans-Medium', 500)};
+  ${fontFace('GoogleSans', 'GoogleSans-Bold', 700)};
+  ${fontFace('AvenyT', 'AvenyT-SemiBold', 600)};
+  ${fontFace('AvenyT', 'AvenyT-Bold', 700)};
 `;

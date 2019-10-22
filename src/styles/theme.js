@@ -17,7 +17,7 @@ export default {
     m7: 1920, // 1360 - 1919
     m8: 2560, // 1920 - 2560
   },
-  mainColor: '#484c54',
+  mainColor: '#000000',
   activeColor: '#fff',
   mainDarkColor: '#fff',
 };

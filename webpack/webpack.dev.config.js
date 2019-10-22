@@ -19,17 +19,28 @@ module.exports = merge(common.default, {
     splitChunks: {},
   },
   module: {
-    rules: [lib.BabelLoader(), lib.CssLoader(), lib.ImageLoader(), lib.SvgLoaderDev()],
+    rules: [
+      lib.BabelLoader(),
+      lib.CssLoader(),
+      lib.ImageLoader(),
+      lib.FontLoader(),
+      lib.SvgLoaderDev(),
+    ],
   },
   devServer: {
     contentBase: path.join(__dirname, '../dist'),
     port: 9000,
-    host: '127.0.0.1',
+    host: '0.0.0.0',
+    useLocalIp: true,
+    index: 'index.html',
     publicPath: '/',
+    hot: true,
     historyApiFallback: true,
+    https: true,
     stats: {
       assets: false,
       modules: false,
     },
+    allowedHosts: ['m.vk.com', 'vk.com', '.vk.com'],
   },
 });
