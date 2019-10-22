@@ -1,11 +1,17 @@
 export default {
   header: {
+    height: 170,
     desktopHeight: 90,
     mobileHeight: 70,
     themes: {
       black: '#000',
       white: '#fff',
     },
+  },
+  card: {
+    height: 324,
+    borderRadius: 80,
+    bottomMargin: -80,
   },
   breakpoints: {
     m1: 480, // 0 - 479

@@ -10,15 +10,7 @@ export const LayoutWrapper = styled.div`
 `;
 
 export const ViewVKWrapper = styled(View)`
-  padding-top: 170px;
-
   .View__header {
     display: none;
-  }
-
-  .View__panel {
-    .Panel__in {
-      padding-top: 0;
-    }
   }
 `;

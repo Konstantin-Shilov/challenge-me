@@ -32,6 +32,11 @@ export const globalStyles = css`
     overflow-x: hidden;
   }
 
+  body[scheme='client_light'],
+  body[scheme='client_dark'] {
+    --background_page: #333232;
+  }
+
   #root {
     height: 100%;
   }

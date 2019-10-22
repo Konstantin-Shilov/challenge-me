@@ -9,7 +9,7 @@ export const HeaderWrapper = styled.div`
   display: flex;
   flex-flow: column;
   justify-content: space-between;
-  height: 170px;
+  height: ${({ theme }) => theme.header.height}px;
   padding: 69px 48px 0;
   border-radius: 0 0 0 80px;
   box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.3);
