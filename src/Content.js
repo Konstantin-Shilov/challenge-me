@@ -3,7 +3,7 @@ import { withCookies } from 'react-cookie';
 
 import Layout from 'layout';
 import Pops from 'pages/Pops';
-import MainSecond from 'pages/MainSecond';
+import MainSecond from 'pages/Best';
 
 const Content = () => (
   <Layout>

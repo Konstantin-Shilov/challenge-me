@@ -1,14 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { CardWrapper } from './styled';
+import { CardWrapper, CardInfo, CardIcon, CardText } from './styled';
 
 const bg = ['E3A4FD', 'FFAADC', 'C2B3FF'];
 
 const Card = ({ className, zIndex, icon, text, bgIndex }) => (
   <CardWrapper className={className} zIndex={zIndex} bg={bg[bgIndex]}>
-    <span>{icon}</span>
-    <span>{text}</span>
+    <CardInfo>
+      <CardIcon>{icon}</CardIcon>
+      <CardText>{text}</CardText>
+    </CardInfo>
   </CardWrapper>
 );
 

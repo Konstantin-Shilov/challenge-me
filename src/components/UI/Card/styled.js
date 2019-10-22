@@ -11,3 +11,28 @@ export const CardWrapper = styled.div`
   margin-bottom: ${({ theme }) => theme.card.bottomMargin}px;
   z-index: ${({ zIndex }) => zIndex};
 `;
+
+export const CardInfo = styled.div`
+  position: relative;
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+`;
+
+export const CardText = styled.p`
+  position: relative;
+  margin: 0;
+  font-size: 19px;
+  line-height: 27px;
+`;
+
+export const CardIcon = styled.span`
+  position: relative;
+  width: 50px;
+  min-width: 50px;
+  margin-right: 22px;
+  font-size: 50px;
+  text-align: center;
+  text-shadow: 0 22px 10px rgba(0, 0, 0, 0.18);
+`;
